@@ -36,7 +36,7 @@ export default function page({ params }) {
       message,
     };
 
-    const resp = await fetch(`http://localhost:3000/checkout/api/${_id}`, {
+    const resp = await fetch(`${process.env.BASE_URL}/checkout/api/${_id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

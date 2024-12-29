@@ -11,7 +11,7 @@ export default function page() {
   const session = useSession();
   const fetchCart = async () => {
     const res = await fetch(
-      `http://localhost:3000/my-bookings/api?email=${session?.data?.user?.email}`
+      `${process.env.BASE_URL}/my-bookings/api?email=${session?.data?.user?.email}`
     );
     const data = await res.json();
     setCarts(data.bookings);
@@ -22,7 +22,7 @@ export default function page() {
   }, [session]);
   const handleDelete = async (id) => {
     const response = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${id}`,
+      `${process.env.BASE_URL}/my-bookings/api/booking/${id}`,
       {
         method: "DELETE",
       }
