@@ -15,4 +15,16 @@ export default {
     },
   },
   plugins: [daisyui],
+  daisyui: {
+    themes: [
+      {
+        carDoctorTheme: {
+          ...require("daisyui/src/theming/themes")['light'],
+          primary: "#FF3811"
+        },
+      },
+      "dark",
+      "cupcake",
+    ],
+  },
 };

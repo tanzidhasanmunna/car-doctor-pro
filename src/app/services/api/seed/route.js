@@ -1,0 +1,17 @@
+import { connectDB } from "@/lib/connectDB";
+import { services } from "@/lib/services";
+
+export const GET = async () => {
+  const db = await connectDB();
+  const servicesCollection = db.collection("services");
+
+  try {
+    await servicesCollection.deleteMany();
+
+    const resp = await servicesCollection.insertMany(services);
+
+    return Response.json({ message: "Success" });
+  } catch (error) {
+    console.log(error);
+  }
+};
