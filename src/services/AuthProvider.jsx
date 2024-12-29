@@ -5,8 +5,8 @@ import { Suspense } from "react";
 
 export default function AuthProvider({ children }) {
   return (
-    <SessionProvider fallback={null}>
-      <Suspense>{children}</Suspense>
+    <SessionProvider>
+      <Suspense fallback={null}>{children}</Suspense>
     </SessionProvider>
   );
 }
