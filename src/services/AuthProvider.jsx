@@ -1,11 +1,12 @@
-'use client'
+"use client";
 
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
+import { Suspense } from "react";
 
-export default function AuthProvider({children}) {
+export default function AuthProvider({ children }) {
   return (
-    <SessionProvider>
-        {children}
+    <SessionProvider fallback={null}>
+      <Suspense>{children}</Suspense>
     </SessionProvider>
-  )
+  );
 }
